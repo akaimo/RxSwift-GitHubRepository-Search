@@ -28,14 +28,9 @@ struct SearchRepositoriesRequest: GitHubAPI {
         return "/search/repositories"
     }
     
-    var parameters: AnyObject? {
+    var parameters: [String: AnyObject] {
         return ["q": query, "page": page]
     }
-    
-    // MARK: PaginationRequestType
-//    func requestWithPage(page: Int) -> SearchRepositoriesRequest {
-//        return SearchRepositoriesRequest(query: query, page: page)
-//    }
     
     func responseFromObject(object: AnyObject, URLResponse: NSHTTPURLResponse) -> Response? {
         return try? decodeValue(object)

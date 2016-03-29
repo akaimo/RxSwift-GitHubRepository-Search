@@ -7,7 +7,25 @@
 //
 
 import UIKit
+import APIKit
 
 class SearchViewModel: NSObject {
-
+    var repositories: [Repository]!
+    
+    func request() -> [Repository]? {
+        var repo: [Repository]?
+        let request = SearchRepositoriesRequest(query: "Swift")
+        Session.sendRequest(request) { result in
+            switch result {
+            case .Success(let response):
+                repo = response.repository
+                print(repo)
+                
+            case .Failure(let error):
+                print(error)
+                repo = nil
+            }
+        }
+        return repo
+    }
 }
