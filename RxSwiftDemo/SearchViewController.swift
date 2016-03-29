@@ -10,8 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    let viewModel = SearchViewModel()
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
