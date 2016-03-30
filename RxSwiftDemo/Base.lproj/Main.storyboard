@@ -16,9 +16,48 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gu9-eu-kZM">
+                                <rect key="frame" x="20" y="114" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検索ワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZG-Dl-rRC">
+                                <rect key="frame" x="20" y="86" width="80" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3文字以上入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0W-go-zY6">
+                                <rect key="frame" x="20" y="152" width="177" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIu-sx-ihs">
+                                <rect key="frame" x="285" y="219" width="30" height="30"/>
+                                <state key="normal" title="検索"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DIu-sx-ihs" firstAttribute="top" secondItem="gu9-eu-kZM" secondAttribute="bottom" constant="75" id="2ZQ-rs-u2B"/>
+                            <constraint firstItem="gu9-eu-kZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2tZ-1w-Dor"/>
+                            <constraint firstItem="HZG-Dl-rRC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="3tO-6t-SRh"/>
+                            <constraint firstItem="o0W-go-zY6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Cdr-v2-rvx"/>
+                            <constraint firstAttribute="trailing" secondItem="gu9-eu-kZM" secondAttribute="trailing" constant="20" id="MCq-wI-AGh"/>
+                            <constraint firstItem="DIu-sx-ihs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rdg-PO-G0n"/>
+                            <constraint firstItem="gu9-eu-kZM" firstAttribute="top" secondItem="HZG-Dl-rRC" secondAttribute="bottom" constant="8" id="gCr-jT-d4T"/>
+                            <constraint firstItem="o0W-go-zY6" firstAttribute="top" secondItem="gu9-eu-kZM" secondAttribute="bottom" constant="8" id="hZU-ex-Yde"/>
+                            <constraint firstItem="gu9-eu-kZM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="qKE-NZ-YLE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Yey-Yn-p7R"/>
+                    <connections>
+                        <outlet property="searchButton" destination="DIu-sx-ihs" id="VwX-qy-5sl"/>
+                        <outlet property="searchTextField" destination="gu9-eu-kZM" id="fSX-zA-3EA"/>
+                        <outlet property="validMessage" destination="o0W-go-zY6" id="SJG-p6-7gg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
