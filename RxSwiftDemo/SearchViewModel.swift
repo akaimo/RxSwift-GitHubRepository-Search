@@ -11,13 +11,12 @@ import RxSwift
 import APIKit
 
 class SearchViewModel: NSObject {
-//    let requestTrigger = PublishSubject<Void>()
-    let error = PublishSubject<ErrorType>()
-    
     var validationMessage: Observable<Bool>!
     var searchRepository: Observable<Bool>!
     
-    var repositories = Variable<[Repository]>([])
+    var searchText = PublishSubject<String>()
+    var repositories = PublishSubject<[Repository]>()
+    let error = PublishSubject<ErrorType>()
     
     let disposeBag = DisposeBag()
     
@@ -30,9 +29,10 @@ class SearchViewModel: NSObject {
             .map { [weak self] in $0.characters.count >= self?.minimumSize }
             .shareReplay(1)
         
-//        let request = requestTrigger
-//            .withLatestFrom(buttonTap)
-//            .map { _ in SearchRepositoriesRequest(query: "Swift") }
+        search
+            .bindTo(searchText)
+            .addDisposableTo(disposeBag)
+        
         let request = buttonTap
             .map { SearchRepositoriesRequest(query: "Swift") }
         
@@ -48,11 +48,12 @@ class SearchViewModel: NSObject {
             .shareReplay(1)
         
         response
-            .map { response in
-                print(response)
-                return response.repository
-            }
+            .map { $0.repository }
             .bindTo(repositories)
+            .addDisposableTo(disposeBag)
+        
+        repositories
+            .subscribeNext { print($0) }
             .addDisposableTo(disposeBag)
     }
 }
