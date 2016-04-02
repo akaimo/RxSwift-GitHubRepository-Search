@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
                 
                 let vc = self?.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
                 vc.title = self?.searchTextField.text
-                vc.viewModel.repository = repository
+                vc.viewModel.repository.value = repository
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             .addDisposableTo(disposeBag)

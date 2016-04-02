@@ -10,6 +10,6 @@ import UIKit
 import RxSwift
 
 class ResultViewModel: NSObject {
-    var repository: [Repository]!
+    var repository = Variable<[Repository]>([])
 
 }

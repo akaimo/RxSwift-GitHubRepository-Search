@@ -13,10 +13,17 @@ import RxCocoa
 class ResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var viewModel = ResultViewModel()
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.repository
+            .asObservable()
+            .bindTo(tableView.rx_itemsWithCellIdentifier("Cell")) {  _, repository, cell in
+                cell.textLabel?.text = repository.fullName
+            }
+            .addDisposableTo(disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
