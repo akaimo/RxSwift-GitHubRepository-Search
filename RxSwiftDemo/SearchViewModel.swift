@@ -34,7 +34,9 @@ class SearchViewModel: NSObject {
             .addDisposableTo(disposeBag)
         
         let request = buttonTap
-            .map { SearchRepositoriesRequest(query: "Swift") }
+            .withLatestFrom(searchText)
+            .map { SearchRepositoriesRequest(query: $0) }
+        
         
         let response = request
             .flatMap { request in
