@@ -25,6 +25,7 @@
 		A2DFCCB41CAA5B0A00CFD814 /* SearchRepositoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCB31CAA5B0A00CFD814 /* SearchRepositoryResult.swift */; };
 		A2DFCCB71CAA5B8200CFD814 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCB61CAA5B8200CFD814 /* Repository.swift */; };
 		A2DFCCB91CAA5E5D00CFD814 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCB81CAA5E5D00CFD814 /* SearchViewModel.swift */; };
+		A2DFCCBC1CAB71D100CFD814 /* Session+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCBB1CAB71D100CFD814 /* Session+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A2DFCCB31CAA5B0A00CFD814 /* SearchRepositoryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryResult.swift; sourceTree = "<group>"; };
 		A2DFCCB61CAA5B8200CFD814 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A2DFCCB81CAA5E5D00CFD814 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A2DFCCBB1CAB71D100CFD814 /* Session+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				A2DFCCBA1CAA5E6000CFD814 /* ViewModel */,
 				A2DFCCA81CAA53E800CFD814 /* Request */,
 				A20C39691C9598F900FD98FD /* AppDelegate.swift */,
+				A2DFCCBB1CAB71D100CFD814 /* Session+Rx.swift */,
 				A20C396D1C9598FA00FD98FD /* Main.storyboard */,
 				A20C39701C9598FA00FD98FD /* Assets.xcassets */,
 				A20C39721C9598FA00FD98FD /* LaunchScreen.storyboard */,
@@ -376,6 +379,7 @@
 				A2DFCCB91CAA5E5D00CFD814 /* SearchViewModel.swift in Sources */,
 				A2DFCCAC1CAA550200CFD814 /* SearchRepositoriesRequest.swift in Sources */,
 				A2DFCCB41CAA5B0A00CFD814 /* SearchRepositoryResult.swift in Sources */,
+				A2DFCCBC1CAB71D100CFD814 /* Session+Rx.swift in Sources */,
 				A2DFCCA71CAA537000CFD814 /* GitHubAPI.swift in Sources */,
 				A20C396A1C9598F900FD98FD /* AppDelegate.swift in Sources */,
 				A2DFCCB71CAA5B8200CFD814 /* Repository.swift in Sources */,
