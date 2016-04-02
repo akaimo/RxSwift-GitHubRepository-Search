@@ -32,6 +32,13 @@ class SearchViewController: UIViewController {
         viewModel.validationMessage
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
+        
+        viewModel.repositories
+            .subscribeNext { [weak self] _ in
+                let vc = self?.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            .addDisposableTo(disposeBag)
     }
     
     override func didReceiveMemoryWarning() {

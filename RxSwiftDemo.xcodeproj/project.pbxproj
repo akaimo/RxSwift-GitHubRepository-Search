@@ -17,6 +17,7 @@
 		A20C399C1C959C5500FD98FD /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20C39981C959C5500FD98FD /* RxBlocking.framework */; };
 		A20C399D1C959C5500FD98FD /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20C39991C959C5500FD98FD /* RxCocoa.framework */; };
 		A20C399E1C959C5500FD98FD /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20C399A1C959C5500FD98FD /* RxSwift.framework */; };
+		A2115EAD1CAFC46C009B89A1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2115EAC1CAFC46C009B89A1 /* ResultViewController.swift */; };
 		A2DFCCA71CAA537000CFD814 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCA61CAA537000CFD814 /* GitHubAPI.swift */; };
 		A2DFCCAC1CAA550200CFD814 /* SearchRepositoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DFCCAB1CAA550200CFD814 /* SearchRepositoriesRequest.swift */; };
 		A2DFCCB01CAA599000CFD814 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DFCCAD1CAA599000CFD814 /* APIKit.framework */; };
@@ -62,6 +63,7 @@
 		A20C39981C959C5500FD98FD /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		A20C39991C959C5500FD98FD /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		A20C399A1C959C5500FD98FD /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A2115EAC1CAFC46C009B89A1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		A2DFCCA61CAA537000CFD814 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		A2DFCCAB1CAA550200CFD814 /* SearchRepositoriesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesRequest.swift; sourceTree = "<group>"; };
 		A2DFCCAD1CAA599000CFD814 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				A20C396B1C9598F900FD98FD /* SearchViewController.swift */,
+				A2115EAC1CAFC46C009B89A1 /* ResultViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				A2DFCCA71CAA537000CFD814 /* GitHubAPI.swift in Sources */,
 				A20C396A1C9598F900FD98FD /* AppDelegate.swift in Sources */,
 				A2DFCCB71CAA5B8200CFD814 /* Repository.swift in Sources */,
+				A2115EAD1CAFC46C009B89A1 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
