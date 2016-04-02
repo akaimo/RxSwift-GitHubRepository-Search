@@ -1,3 +1,4 @@
 github "ReactiveX/RxSwift" ~> 2.0
 github "ishkawa/APIKit" ~> 1.1.2
 github "ikesyo/Himotoki" ~> 1.5
+github "jdg/MBProgressHUD" ~> 0.9.2

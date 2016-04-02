@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MBProgressHUD
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
@@ -34,9 +35,20 @@ class SearchViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         viewModel.repositories
-            .subscribeNext { [weak self] _ in
+            .subscribeNext { [weak self] repository in
+                MBProgressHUD.hideHUDForView(self?.view, animated: true)
+                self?.view.endEditing(true)
+                
                 let vc = self?.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
+                vc.title = self?.searchTextField.text
+                vc.viewModel.repository = repository
                 self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            .addDisposableTo(disposeBag)
+        
+        searchButton.rx_tap
+            .subscribeNext { [weak self] _ in
+                MBProgressHUD.showHUDAddedTo(self?.view, animated: true)
             }
             .addDisposableTo(disposeBag)
     }
