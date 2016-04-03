@@ -30,6 +30,10 @@ class SearchViewController: UIViewController {
             keyboardReturn: searchTextField.rx_controlEvent(.EditingDidEndOnExit).asObservable()
         )
         
+        searchTextField.rx_text
+            .bindTo(viewModel.searchText)
+            .addDisposableTo(disposeBag)
+        
         viewModel.validationMessage
             .bindTo(validMessage.rx_hidden)
             .addDisposableTo(disposeBag)
@@ -38,14 +42,14 @@ class SearchViewController: UIViewController {
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
-        viewModel.repositories
-            .subscribeNext { [weak self] repository in
+        viewModel.response
+            .subscribeNext { [weak self] response in
                 MBProgressHUD.hideHUDForView(self?.view, animated: true)
                 self?.view.endEditing(true)
                 
                 let vc = self?.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
                 vc.title = self?.searchTextField.text
-                vc.viewModel.repository.value = repository
+                vc.viewModel.repository.value = response.repository
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             .addDisposableTo(disposeBag)
@@ -61,7 +65,6 @@ class SearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

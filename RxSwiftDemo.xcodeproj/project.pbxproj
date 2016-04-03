@@ -141,7 +141,7 @@
 				A2DFCCBA1CAA5E6000CFD814 /* ViewModel */,
 				A2DFCCA81CAA53E800CFD814 /* Request */,
 				A20C39691C9598F900FD98FD /* AppDelegate.swift */,
-				A2DFCCBB1CAB71D100CFD814 /* Session+Rx.swift */,
+				A28A302F1CB0C39D00C8E1B0 /* Extension */,
 				A2115EB21CAFDF67009B89A1 /* RxSwiftDemo-Bridging-Header.h */,
 				A20C396D1C9598FA00FD98FD /* Main.storyboard */,
 				A20C39701C9598FA00FD98FD /* Assets.xcassets */,
@@ -167,6 +167,14 @@
 				A20C398B1C9598FA00FD98FD /* Info.plist */,
 			);
 			path = RxSwiftDemoUITests;
+			sourceTree = "<group>";
+		};
+		A28A302F1CB0C39D00C8E1B0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A2DFCCBB1CAB71D100CFD814 /* Session+Rx.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		A2DFCCA81CAA53E800CFD814 /* Request */ = {

@@ -13,12 +13,13 @@ import APIKit
 class SearchViewModel {
     var validationMessage: Observable<Bool>
     var request: Observable<SearchRepositoriesRequest>
+    var response: Observable<SearchRepositoriesRequest.Response>
     
-    var searchText = PublishSubject<String>()
-    var repositories = PublishSubject<[Repository]>()
-    let error = PublishSubject<ErrorType>()
+    var searchText = Variable<String>("")
+    var repositories = Variable<[Repository]>([])
     
     let disposeBag = DisposeBag()
+    
     
     init(search: Observable<String>, buttonTap: Observable<Void>, keyboardReturn: Observable<Void>) {
         let minimumSize = 3
@@ -26,19 +27,14 @@ class SearchViewModel {
             .map { $0.characters.count >= minimumSize }
             .shareReplay(1)
         
-        search
-            .bindTo(searchText)
-            .addDisposableTo(disposeBag)
-        
         request = Observable
             .of(buttonTap, keyboardReturn)
             .merge()
-            .withLatestFrom(searchText)
+            .withLatestFrom(searchText.asObservable())
             .map { SearchRepositoriesRequest(query: $0) }
             .shareReplay(1)
         
-        
-        let response = request
+        response = request
             .flatMap { request in
                 return Session
                     .rx_response(request)
@@ -53,6 +49,7 @@ class SearchViewModel {
             .addDisposableTo(disposeBag)
         
         repositories
+            .asObservable()
             .subscribeNext { print($0) }
             .addDisposableTo(disposeBag)
     }
