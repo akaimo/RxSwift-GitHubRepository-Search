@@ -11,7 +11,7 @@ import RxSwift
 import APIKit
 
 class SearchViewModel {
-    var validationMessage: Observable<Bool>
+    var validation: Observable<Bool>
     var request: Observable<SearchRepositoriesRequest>
     var response: Observable<SearchRepositoriesRequest.Response>
     
@@ -23,7 +23,7 @@ class SearchViewModel {
     
     init(search: Observable<String>, buttonTap: Observable<Void>, keyboardReturn: Observable<Void>) {
         let minimumSize = 3
-        validationMessage = search
+        validation = search
             .map { $0.characters.count >= minimumSize }
             .shareReplay(1)
         

@@ -34,11 +34,11 @@ class SearchViewController: UIViewController {
             .bindTo(viewModel.searchText)
             .addDisposableTo(disposeBag)
         
-        viewModel.validationMessage
+        viewModel.validation
             .bindTo(validMessage.rx_hidden)
             .addDisposableTo(disposeBag)
         
-        viewModel.validationMessage
+        viewModel.validation
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
