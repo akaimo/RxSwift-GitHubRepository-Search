@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class ResultViewModel: NSObject {
+class ResultViewModel {
     var repository = Variable<[Repository]>([])
 
 }
