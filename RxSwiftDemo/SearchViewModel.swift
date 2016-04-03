@@ -10,10 +10,9 @@ import UIKit
 import RxSwift
 import APIKit
 
-class SearchViewModel: NSObject {
-    var validationMessage: Observable<Bool>!
-    var searchRepository: Observable<Bool>!
-    var request: Observable<SearchRepositoriesRequest>!
+class SearchViewModel {
+    var validationMessage: Observable<Bool>
+    var request: Observable<SearchRepositoriesRequest>
     
     var searchText = PublishSubject<String>()
     var repositories = PublishSubject<[Repository]>()
@@ -21,13 +20,10 @@ class SearchViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    let minimumSize = 3
-    
     init(search: Observable<String>, buttonTap: Observable<Void>, keyboardReturn: Observable<Void>) {
-        super.init()
-        
+        let minimumSize = 3
         validationMessage = search
-            .map { [weak self] in $0.characters.count >= self?.minimumSize }
+            .map { $0.characters.count >= minimumSize }
             .shareReplay(1)
         
         search
@@ -46,9 +42,7 @@ class SearchViewModel: NSObject {
             .flatMap { request in
                 return Session
                     .rx_response(request)
-                    .doOnError { [weak self] error in
-                        self?.error.onNext(error)
-                    }
+                    .doOnError { PublishSubject<ErrorType>().onNext($0) }
                     .catchError { _ in Observable.empty() }
             }
             .shareReplay(1)
