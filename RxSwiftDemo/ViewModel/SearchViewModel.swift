@@ -31,6 +31,7 @@ class SearchViewModel {
             .of(buttonTap, keyboardReturn)
             .merge()
             .withLatestFrom(searchText.asObservable())
+            .filter { $0.characters.count >= minimumSize }
             .map { SearchRepositoriesRequest(query: $0) }
             .shareReplay(1)
         
