@@ -13,6 +13,7 @@ import APIKit
 class SearchViewModel: NSObject {
     var validationMessage: Observable<Bool>!
     var searchRepository: Observable<Bool>!
+    var request: Observable<SearchRepositoriesRequest>!
     
     var searchText = PublishSubject<String>()
     var repositories = PublishSubject<[Repository]>()
@@ -22,7 +23,7 @@ class SearchViewModel: NSObject {
     
     let minimumSize = 3
     
-    init(search: Observable<String>, buttonTap: Observable<Void>) {
+    init(search: Observable<String>, buttonTap: Observable<Void>, keyboardReturn: Observable<Void>) {
         super.init()
         
         validationMessage = search
@@ -33,9 +34,12 @@ class SearchViewModel: NSObject {
             .bindTo(searchText)
             .addDisposableTo(disposeBag)
         
-        let request = buttonTap
+        request = Observable
+            .of(buttonTap, keyboardReturn)
+            .merge()
             .withLatestFrom(searchText)
             .map { SearchRepositoriesRequest(query: $0) }
+            .shareReplay(1)
         
         
         let response = request

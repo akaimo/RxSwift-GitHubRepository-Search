@@ -24,7 +24,11 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         self.title = "GitHub リポジトリ検索"
         
-        viewModel = SearchViewModel(search: searchTextField.rx_text.asObservable(), buttonTap: searchButton.rx_tap.asObservable())
+        viewModel = SearchViewModel(
+            search: searchTextField.rx_text.asObservable(),
+            buttonTap: searchButton.rx_tap.asObservable(),
+            keyboardReturn: searchTextField.rx_controlEvent(.EditingDidEndOnExit).asObservable()
+        )
         
         viewModel.validationMessage
             .bindTo(validMessage.rx_hidden)
@@ -46,7 +50,7 @@ class SearchViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        searchButton.rx_tap
+        viewModel.request
             .subscribeNext { [weak self] _ in
                 MBProgressHUD.showHUDAddedTo(self?.view, animated: true)
             }
